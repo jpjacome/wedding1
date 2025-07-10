@@ -80,3 +80,55 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// EmailJS configuration
+emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+
+// Form submission handler
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('rsvp-form');
+    
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Check honeypot for spam
+            const honeypot = form.querySelector('input[name="honeypot"]');
+            if (honeypot && honeypot.value !== '') {
+                console.log('Spam detected');
+                return;
+            }
+            
+            // Get form data
+            const formData = new FormData(form);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                attendance: formData.get('attendance'),
+                guests: formData.get('guests'),
+                message: formData.get('message')
+            };
+            
+            // Show loading state
+            const submitBtn = form.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Enviando...';
+            submitBtn.disabled = true;
+            
+            // Send email using EmailJS
+            emailjs.send('service_skzxxs6', 'YOUR_TEMPLATE_ID', data)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    // Redirect to thank you page
+                    window.location.href = '/thank-you.html';
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Error al enviar el mensaje. Por favor, intenta de nuevo.');
+                    
+                    // Reset button
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                });
+        });
+    }
+});
