@@ -73,7 +73,10 @@
 
     <div class="wrapper wrapper-5">
         <h2>RSVP</h2>
-        <form class="rsvp-form">
+        <form class="rsvp-form" netlify netlify-honeypot="bot-field">
+            <!-- Hidden field for spam protection -->
+            <input type="hidden" name="bot-field">
+            
             <div class="form-group">
                 <label for="name">Nombre completo:</label>
                 <input type="text" id="name" name="name" required>
