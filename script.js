@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // EmailJS configuration
-emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+emailjs.init("kgZlrpJKfDpOhLkvX"); // Replace with your EmailJS public key
 
 // Form submission handler
 document.addEventListener('DOMContentLoaded', function() {
@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.disabled = true;
             
             // Send email using EmailJS
-            emailjs.send('service_skzxxs6', 'YOUR_TEMPLATE_ID', data)
+            emailjs.send('service_skzxxs6', 'template_fv1upvn', data)
                 .then(function(response) {
                     console.log('SUCCESS!', response.status, response.text);
                     // Redirect to thank you page
