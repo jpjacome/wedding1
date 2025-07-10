@@ -21,36 +21,30 @@ window.addEventListener('load', function() {
     }, 500); // Initial delay
 });
 
-// Intersection Observer to add fade-in animation to wrapper content
+// Simple Intersection Observer for fade-in animations
 document.addEventListener('DOMContentLoaded', function() {
-    // Get all wrapper elements except wrapper-1
-    const wrappers = document.querySelectorAll('.wrapper:not(.wrapper-1)');
-    
     // Options for the Intersection Observer
     const options = {
         threshold: 0.1, // Trigger when 10% of the element is visible
-        rootMargin: '0px 0px -50px 0px' // Trigger slightly before the element comes into view
+        rootMargin: '0px 0px -50px 0px'
     };
     
     // Create the observer
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Find all direct children of the wrapper and add fade-in-1 class
-                const children = entry.target.children;
-                Array.from(children).forEach(child => {
-                    child.classList.add('fade-in-1');
-                });
-                
-                // Optional: Stop observing this element once it's animated
-                // observer.unobserve(entry.target);
+                // Add fade-in-1 class to trigger animation
+                entry.target.classList.add('fade-in-1');
+                // Stop observing this element once it's animated
+                observer.unobserve(entry.target);
             }
         });
     }, options);
     
-    // Start observing all wrapper elements (except wrapper-1)
-    wrappers.forEach(wrapper => {
-        observer.observe(wrapper);
+    // Observe all elements with fade-in class
+    const fadeInElements = document.querySelectorAll('.fade-in');
+    fadeInElements.forEach(element => {
+        observer.observe(element);
     });
     
     // Force video to play on mobile

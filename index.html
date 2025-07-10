@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="./style.css">
     <!-- Add EmailJS script -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script src="./script.js"></script>
 </head>
 <body>
 
@@ -39,7 +38,7 @@
                 <img class="header-logo" src="./assets/imgs/logo.png" alt="">
                 <div class="nav-items fade-in-3">
                 <a class="nav-item" href="#dresscode">Dress Code</a>
-                <a class="nav-item" href="">¿Cómo llegar?</a>
+                <a class="nav-item" href="#llegar">¿Cómo llegar?</a>
                 <a class="nav-item" href="#contribuciones">Contribuciones</a>
                 <a class="nav-item" href="">Confirmación</a>
             </div>
@@ -48,28 +47,37 @@
 
     <div class="wrapper wrapper-1">
         <h1 class="fade-in-1">Vero & David</h1>
-        <video class="fade-in-2" autoplay muted loop playsinline preload="auto">
+        <video class="fade-in-3" autoplay muted loop playsinline preload="auto">
             <source src="./assets/1.mp4" type="video/mp4">
             <img src="./assets/imgs/1.png" alt="Vero & David" class="video-fallback">
         </video>
-        <div class="info">
+        <div class="info fade-in">
             <h3>04 de julio de 2025 - 14:00 pm</h3>
             <h3>Jardín del Bosque</h3>
         </div>
-        <h3></h3>
     </div>
     <div class="wrapper wrapper-2">
-        <p>Con mucha alegría, queremos invitarlos e invitarlas a compartir un día muy especial con nosotrxs. <br>Hemos decidido juntar nuestros caminos y recorrer nuevos. Por ello, queremos celebrar junto a ustedes nuestro deseo de caminar de la mano y al mismo tiempo, despedirnos antes de nuestro viaje. <br>Queremos compartir en un espacio rodeadxs de naturaleza y de nuestras personas más amadas.</p>
-        <img class="border" src="./assets/imgs/border.png" alt="" id="dresscode">
-        <h3>Dress Code - Código de vestimenta</h3>
-        <p>Semiformal - vístete como te sientas más cómodo-a.</p>
+        <p class="fade-in">Con mucha alegría, queremos invitarlos e invitarlas a compartir un día muy especial con nosotrxs. <br>Hemos decidido juntar nuestros caminos y recorrer nuevos. Por ello, queremos celebrar junto a ustedes nuestro deseo de caminar de la mano y al mismo tiempo, despedirnos antes de nuestro viaje. <br>Queremos compartir en un espacio rodeadxs de naturaleza y de nuestras personas más amadas.</p>
+        <img  class="border fade-in" src="./assets/imgs/border.png" alt=""  id="llegar">
     </div>
     <div class="wrapper wrapper-3">
+        <h3 class="fade-in">¿Cómo llegar?</h3>
+        <div class="llegar-container fade-in">
+            <div class="llegar-info">
+                <p>Vía Ayancay a 2 min de la Autopista Azogues, Cuenca.</p>
+                <p>A 8 min de Challuabamaba y a 9 min de Azogues</p>
+            </div>
+            <div class="google-map">
+                <iframe  id="dresscode" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15939.93945502604!2d-78.8985539913601!3d-2.8205502068809882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91cd11f50e1274a3%3A0xc276b82eaf42477e!2sJard%C3%ADn%20del%20Bosque!5e0!3m2!1sen!2sec!4v1752174284622!5m2!1sen!2sec" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <h3 class="dress-code-title fade-in">Dress Code - Código de vestimenta</h3>
+        <p class="dress-code-text fade-in">Semiformal - vístete como te sientas más cómodo-a.</p>
         
     </div>
     <div class="wrapper wrapper-4">
-        <h3>Su presencia y ganas de celebrar son nuestro mejor regalo. Pero si además quieres darnos un regalito, te compartimos nuestra cuenta:</h3>
-        <div class="info-container">
+        <h3 class="fade-in">Su presencia y ganas de celebrar son nuestro mejor regalo. Pero si además quieres darnos un regalito, te compartimos nuestra cuenta:</h3>
+        <div class="info-container fade-in">
             <p>JEP Ahorros Cuenta: 406177577800</p>
             <p>Cédula: 0104576186</p>
             <p>Verónica Estefanía Astudillo Álvarez</p>
@@ -78,8 +86,8 @@
     </div>
 
     <div class="wrapper wrapper-5">
-        <h3>Confirma tu asistencia hasta 25/07/2025</h3>
-        <form class="rsvp-form" id="rsvp-form">
+        <h3 class="fade-in">Confirma tu asistencia hasta 25/07/2025</h3>
+        <form class="rsvp-form fade-in" id="rsvp-form">
             <!-- Honeypot field for spam protection -->
             <input type="text" name="honeypot" style="display: none;">
             
@@ -115,7 +123,7 @@
             <button type="submit" class="submit-btn">Confirmar Asistencia</button>
         </form>
         
-        <img class="logo" src="./assets/imgs/logo.png" alt="" id="contribuciones">
+        <img class="logo fade-in" src="./assets/imgs/logo.png" alt="" id="contribuciones">
     </div>
     
     </div> <!-- End page-content -->
