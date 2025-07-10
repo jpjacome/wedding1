@@ -174,6 +174,10 @@ header{
     height: auto;
         overflow-x: hidden; 
 }
+    .wrapper-2 h3{
+        font-size: calc(2rem + 1vw);
+        text-align: center;
+    }
 
     .wrapper-2 p{
         font-size: calc(1.2rem + .6vw);
@@ -187,6 +191,7 @@ header{
     .wrapper-2 .border{
         width: 100vw;
         margin-top: 6rem;   
+        margin-bottom: 5rem;
     }
         @media screen and (max-width: 768px) {
             .wrapper-2 .border{
@@ -197,54 +202,30 @@ header{
         }
 
     .wrapper-3{
-        height: auto;
+        height: 20vh;
         background-color: var(--color-2);
         justify-content: flex-start;
     }
-        .wrapper-3 .photos{
-        margin-top: 5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 3rem;
-            max-width: 80vw;
-            flex-wrap: wrap;
-        }
-        .wrapper-3 .photos img{
-            width: 20vw;
-            min-width: 300px;
-            border-radius: 10px;
-            object-fit: contain;
-            filter: sepia(.5);
-            transition: filter 0.3s ease-in-out;
-        }
-            .wrapper-3 .photos img:hover{
-                filter: sepia(0);
-            }
-
-        .logo{
-            height: 130px;
-            margin: 5rem 2rem;
-        }
+    
 
 .wrapper-4{
     display: flex;
     height: auto;
-    flex-direction: row;
-    gap: 5rem;
+    flex-direction: column;
     background-image: linear-gradient(to bottom, var(--color-2), var(--color-1));
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
 }
-    @media screen and (max-width: 768px) {
-        .wrapper-4{
-            gap: 0;
-        }
-        
+    .wrapper-4 h3{
+        width: 70vw;
+        text-align: center;
+        margin-bottom: 5rem;
     }
 .wrapper-4 .info-container{
     font-size: calc(1.2rem + .6vw);
-    margin: 3rem;
+    margin: 0 0 8rem;
+    padding: 1rem 3rem;
+    border: 1px solid var(--color-3);
 }
 
 .wrapper-5{
@@ -260,7 +241,7 @@ header{
 .rsvp-form{
     max-width: 600px;
     width: 100%;
-    margin-top: 2rem;
+    margin-top: 0rem;
     padding: 2rem;
     box-sizing: border-box;
 }
@@ -440,6 +421,11 @@ header{
         padding: 12px 20px;
         font-size: 1.2rem;
     }
+}
+
+.logo{
+    width: 100px;
+    margin-top: 5rem;
 }
 
 /* Loading screen */
