@@ -89,8 +89,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('rsvp-form');
     
     if (form) {
+        let isSubmitting = false; // Flag to prevent double submissions
+        
         form.addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Prevent double submission
+            if (isSubmitting) {
+                console.log('Form already submitting, ignoring duplicate submission');
+                return;
+            }
             
             // Check honeypot for spam
             const honeypot = form.querySelector('input[name="honeypot"]');
@@ -98,6 +106,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('Spam detected');
                 return;
             }
+            
+            // Set submitting flag
+            isSubmitting = true;
             
             // Get form data
             const formData = new FormData(form);
@@ -136,9 +147,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.log('FAILED...', error);
                     alert('Error al enviar el mensaje. Por favor, intenta de nuevo.');
                     
-                    // Reset button
+                    // Reset button and flag
                     submitBtn.textContent = originalText;
                     submitBtn.disabled = false;
+                    isSubmitting = false;
                 });
         });
     }
