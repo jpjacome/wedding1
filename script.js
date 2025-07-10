@@ -101,12 +101,23 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Get form data
             const formData = new FormData(form);
+            const currentDate = new Date().toLocaleString('es-ES', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            
             const data = {
                 name: formData.get('name'),
                 email: formData.get('email'),
                 attendance: formData.get('attendance'),
                 guests: formData.get('guests'),
-                message: formData.get('message')
+                message: formData.get('message') || 'Sin mensaje',
+                date: currentDate,
+                from_name: formData.get('name'),
+                from_email: formData.get('email')
             };
             
             // Show loading state
