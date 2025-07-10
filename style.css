@@ -297,8 +297,9 @@ header{
     padding-bottom: 5rem;
 }
 
-.wrapper-5 h2{
-    margin-bottom: 0rem;
+.wrapper-5 h3{
+    margin: 2rem 3rem;
+    text-align: center;
 }
 
 .rsvp-form{
