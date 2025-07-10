@@ -82,17 +82,31 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // EmailJS configuration
-emailjs.init("kgZlrpJKfDpOhLkvX"); // Replace with your EmailJS public key
+emailjs.init("kgZlrpJKfDpOhLkvX");
+
+// Global flag to prevent multiple form handlers
+let formHandlerInitialized = false;
 
 // Form submission handler
 document.addEventListener('DOMContentLoaded', function() {
+    // Prevent multiple initialization
+    if (formHandlerInitialized) {
+        console.log('Form handler already initialized, skipping...');
+        return;
+    }
+    
     const form = document.getElementById('rsvp-form');
     
     if (form) {
+        formHandlerInitialized = true;
         let isSubmitting = false; // Flag to prevent double submissions
+        
+        console.log('Initializing form handler for:', form);
         
         form.addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            console.log('Form submission triggered, isSubmitting:', isSubmitting);
             
             // Prevent double submission
             if (isSubmitting) {
@@ -109,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Set submitting flag
             isSubmitting = true;
+            console.log('Setting isSubmitting to true');
             
             // Get form data
             const formData = new FormData(form);
@@ -128,8 +143,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 message: formData.get('message') || 'Sin mensaje',
                 date: currentDate,
                 from_name: formData.get('name'),
-                from_email: formData.get('email')
+                from_email: formData.get('email'),
+                submission_id: 'RSVP_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9)
             };
+            
+            console.log('Sending email with data:', data);
             
             // Show loading state
             const submitBtn = form.querySelector('.submit-btn');
@@ -151,7 +169,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     submitBtn.textContent = originalText;
                     submitBtn.disabled = false;
                     isSubmitting = false;
+                    console.log('Reset isSubmitting to false due to error');
                 });
         });
+    } else {
+        console.log('No RSVP form found on this page');
     }
 });
